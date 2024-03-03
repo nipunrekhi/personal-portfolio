@@ -3,8 +3,8 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-
+import { createUser } from "@/app/action";
+import ContactForm from "./form";
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -14,6 +14,7 @@ const Contact = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
   return (
     <motion.div
       ref={ref}
@@ -43,7 +44,7 @@ const Contact = () => {
           </motion.p>
         </div>
         <div className="mx-auto w-full max-w-sm space-y-4" ref={ref}>
-          <form className="grid gap-2">
+          <form className="grid gap-2" action={createUser}>
             <motion.div
               className="grid sm:grid-cols-[100px_1fr]"
               variants={containerVariants}
@@ -58,7 +59,13 @@ const Contact = () => {
               >
                 Name
               </label>
-              <Input id="name" placeholder="Enter your name" required />
+              <Input
+                type="text"
+                name="name"
+                required
+                id="name"
+                placeholder="Enter your name"
+              />
             </motion.div>
             <motion.div
               className="grid sm:grid-cols-[100px_1fr]"
@@ -78,6 +85,7 @@ const Contact = () => {
                 id="email"
                 placeholder="Enter your email"
                 required
+                name="email"
                 type="email"
               />
             </motion.div>
@@ -99,6 +107,7 @@ const Contact = () => {
                 className="min-h-[100px] resize-y"
                 id="message"
                 placeholder="Enter your message"
+                name="message"
                 required
               />
             </motion.div>
@@ -109,9 +118,7 @@ const Contact = () => {
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
               }
             >
-              <Button type="submit" className="w-full">
-                Submit
-              </Button>
+             <ContactForm/>
             </motion.div>
           </form>
         </div>
