@@ -34,14 +34,14 @@ const Header = () => {
         <MountainIcon className="h-6 w-6" />
         <span className="sr-only">Acme Inc</span>
       </Link>
-      <nav className="ml-auto flex gap-0 sm:gap-4 md:ml-auto ">
-        <FloatingNav className="!opacity-80">
+      <nav className="ml-auto flex gap-0 sm:gap-4 ">
+        <FloatingNav className="!opacity-80 ">
           {navItems.map(({ name, id }, idx) => (
             <Button
               key={name + "" + idx}
               variant={"link"}
               onClick={(e) => scrollToPage(id)}
-              className="text-sm font-medium hover:underline underline-offset-4"
+              className="text-sm font-medium hover:underline underline-offset-4 "
             >
               {name}
             </Button>
@@ -52,12 +52,12 @@ const Header = () => {
             key={name + "" + idx}
             variant={"link"}
             onClick={(e) => scrollToPage(id)}
-            className="text-sm font-medium hover:underline underline-offset-4"
+            className="text-sm font-medium hover:underline underline-offset-4 pl-0 lg:p-2 sm:p-2 md:p-2 xl:p-2"
           >
             {name}
           </Button>
         ))}
-        <div className="text-sm font-medium hover:underline underline-offset-4">
+        <div className="text-sm font-medium">
           <ModeToggle />
         </div>
       </nav>
