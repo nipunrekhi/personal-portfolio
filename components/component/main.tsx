@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import profile from "../../public/profile.jpg";
+import Image from "next/image";
 const Main = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -79,10 +80,7 @@ const Main = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="mx-auto aspect-square overflow-hidden rounded-full border-4 border-gray-100 dark:border-gray-800"
         >
-          <motion.img
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+          <Image
             alt="Profile Picture"
             className="rounded-full object-cover object-center"
             height="300"

@@ -25,6 +25,7 @@ const ProjectCard = () => {
     <React.Fragment>
       {projects.map(({ name, desc, type }, idx) => (
         <motion.div
+          key={name + "" + idx}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
